@@ -32,7 +32,9 @@ public class PickUpSystem : MonoBehaviour
         {
             if (heldObj == null)
             {
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hit, pickUpRange))
+
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
                     if (hit.transform.gameObject.tag == "CanPickUp")
                         PickUpObject(hit.transform.gameObject);
             }
@@ -82,7 +84,7 @@ public class PickUpSystem : MonoBehaviour
     }
     void RotateObject()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.R))
         {
             canDrop = false; 
 
